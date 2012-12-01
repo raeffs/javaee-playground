@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>JavaEE-Playground</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>UserName</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${userBean.list()}" var="user">
+                        <tr>
+                            <td>${user.userId}</td>
+                            <td>${user.userName}</td>
+                            <td>${user.firstName}</td>
+                            <td>${user.lastName}</td>
+                            <td>${user.email}</td>
+                            <td><h:commandLink value="edit" action="${userBean.edit(user.userId)}" /></td>
+                            <td><h:commandLink value="delete" action="${userBean.delete(user.userId)}" /></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><h:commandLink value="create" action="${userBean.create()}" /></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </h:form>
+        <h:form rendered="${userBean.inEditMode}">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>UserName</td>
+                        <td><h:inputText value="${userBean.currentUser.userName}" /></td>
+                    </tr>
+                    <tr>
+                        <td>FirstName</td>
+                        <td><h:inputText value="${userBean.currentUser.firstName}" /></td>
+                    </tr>
+                    <tr>
+                        <td>LastName</td>
+                        <td><h:inputText value="${userBean.currentUser.lastName}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><h:inputText value="${userBean.currentUser.email}" /></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><h:commandLink value="save" action="${userBean.save()}" /></td>
+                        <td><h:commandLink value="discard" action="${userBean.discard()}" /></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </h:form>
+    </h:body>
+</html>
