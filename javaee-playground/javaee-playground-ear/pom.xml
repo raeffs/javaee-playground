@@ -42,14 +42,12 @@
     </plugins>
   </build>
     <dependencies>
-        <!--
         <dependency>
             <groupId>ch.raphaelfleischlin</groupId>
             <artifactId>javaee-playground-core</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
-        -->
         <dependency>
             <groupId>ch.raphaelfleischlin</groupId>
             <artifactId>javaee-playground-domain</artifactId>

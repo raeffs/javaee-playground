@@ -1,5 +1,7 @@
 package ch.raphaelfleischlin.playground.domain;
 
+import ch.raphaelfleischlin.playground.aspects.logging.ExceptionLogged;
+import ch.raphaelfleischlin.playground.aspects.logging.MethodCallLogged;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateful;
@@ -9,6 +11,8 @@ import javax.ejb.Stateful;
  * @author Raphael Fleischlin <raphael.fleischlin@stud.hslu.ch>
  */
 @Stateful
+@MethodCallLogged
+@ExceptionLogged
 public class UserService {
     
     private List<User> users;
