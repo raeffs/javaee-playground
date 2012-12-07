@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration dubug="true">
+    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.JNDIConnectionSource">
+            <jndiLocation>jdbc/playground</jndiLocation>
+        </connectionSource>
+    </appender>
+    <root level="TRACE">
+        <appender-ref ref="DB" />
+    </root>
+</configuration>

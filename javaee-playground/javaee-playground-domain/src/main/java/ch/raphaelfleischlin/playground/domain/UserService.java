@@ -4,13 +4,13 @@ import ch.raphaelfleischlin.playground.aspects.logging.ExceptionLogged;
 import ch.raphaelfleischlin.playground.aspects.logging.MethodCallLogged;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author Raphael Fleischlin <raphael.fleischlin@stud.hslu.ch>
  */
-@Stateful
+@Stateless
 @MethodCallLogged
 @ExceptionLogged
 public class UserService {
