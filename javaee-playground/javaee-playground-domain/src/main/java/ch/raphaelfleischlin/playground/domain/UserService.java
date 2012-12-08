@@ -2,9 +2,11 @@ package ch.raphaelfleischlin.playground.domain;
 
 import ch.raphaelfleischlin.playground.aspects.logging.ExceptionLogged;
 import ch.raphaelfleischlin.playground.aspects.logging.MethodCallLogged;
+import ch.raphaelfleischlin.playground.database.MigrationStartupBean;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
@@ -14,6 +16,9 @@ import javax.ejb.Stateless;
 @MethodCallLogged
 @ExceptionLogged
 public class UserService {
+    
+    @Inject
+    private MigrationStartupBean bean;
     
     private List<User> users;
     private int nextUserId = 1;

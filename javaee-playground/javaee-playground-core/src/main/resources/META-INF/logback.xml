@@ -5,7 +5,16 @@
             <jndiLocation>jdbc/playground</jndiLocation>
         </connectionSource>
     </appender>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>%d %-5level %logger{0} - %msg</pattern>
+        </encoder>
+    </appender>
     <root level="TRACE">
         <appender-ref ref="DB" />
+        <appender-ref ref="CONSOLE" />
     </root>
 </configuration>
